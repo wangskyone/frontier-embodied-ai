@@ -21,6 +21,7 @@
   <a href="#papers">Papers</a> &nbsp; · &nbsp;
   <a href="#paper-collections">Paper collections</a> &nbsp; · &nbsp;
   <a href="#blogs">Blogs &amp; perspectives</a> &nbsp; · &nbsp;
+  <a href="#astra-in-the-real-world">Astra in the real world</a> &nbsp; · &nbsp;
   <a href="#contributing">Contribute</a>
 </p>
 
@@ -187,8 +188,10 @@ The [source record](SOURCES.md) links the exact collection snapshots used.
 
 ## Blogs
 
-Perspectives, technical deep dives, and research notes across the four directions.
-The initial collection below focuses on RSI and self-evolving agents.
+Perspectives, technical deep dives, and research notes on embodied learning and
+real-world agent evaluations.
+
+### RSI and Self-Evolving Agents
 
 | Date | Title | Author / Organization | Links |
 | :--- | :--- | :--- | :--- |
@@ -196,6 +199,20 @@ The initial collection below focuses on RSI and self-evolving agents.
 | 2026-07-04 | Harness Engineering for Self-Improvement | Lilian Weng | [Blog](https://lilianweng.github.io/posts/2026-07-04-harness/) |
 | 2026-06-08 | The What & When of Self-Evolving Agents | Xinming Tu | [Blog](https://xinmingtu.cn/blog/2026/self-evolving-agents/) |
 | Not listed | PhysicalRSI: Recursive Self-Harness for Scaling Embodied Skills | Not listed | [Blog](https://yanming03.github.io/PhysicalRSI/) |
+
+### Astra in the Real World
+
+Real-robot evaluations of Astra as a policy for physical interaction.
+
+| Date | Title | Author / Organization | Links |
+| :--- | :--- | :--- | :--- |
+| 2026 | Astra Beyond Tabletop: Into the Home | Yuchen Zheng et al. / Georgia Tech RAIL | [Blog](https://www.gt-rail.com/blog/astra-beyond-tabletop/#title) |
+
+Evaluates zero-shot mobile manipulation with Hello Robot Stretch 4 across 24
+household tasks in a lab apartment, using relative joint and base commands.
+Reports task outcomes, reasoning-effort and wrist-depth ablations, and recurring
+limitations in fine manipulation, cross-step dependencies, collision avoidance,
+and execution efficiency.
 
 <p align="right"><a href="#contents">↑ Back to contents</a></p>
 

@@ -75,3 +75,9 @@ Snapshot links preserve the source list even when a rolling digest changes.
 - **TTT:** RoboTTT updates fast weights; VANE and TTT-VLA optimize prompts; TT-VLA uses test-time reinforcement learning; FAR adapts from failure preferences during retries and separately trains on successful recoveries. Pure search, sampling, and retrieval were not counted as TTT additions.
 - **Code World Model:** EMPIRIC includes physical-robot experiments. AgentGarten, Memento 3, CoDeR, and PWM study simulated or interactive worlds. Memento 3 also relates to RSI but is listed once, under its executable world-model mechanism.
 - **Dates:** HOST's first arXiv submission is July 22, 2026; the later August public release date used in some collections is not its first-submission date. The README displays months; the tables here preserve exact dates.
+
+
+## User-selected blog: 2026-10-23
+
+- [Astra Beyond Tabletop: Into the Home](https://www.gt-rail.com/blog/astra-beyond-tabletop/#title), Yuchen Zheng et al., Georgia Tech RAIL. Added to **Blogs / Astra in the Real World** at the user's request.
+- The original article describes 24 household tasks on a real Hello Robot Stretch 4 in a lab apartment, with task outcomes and reasoning-effort/depth ablations. The entry is a blog evaluation; the page's citation supplies 2026 but no exact publication date.
