@@ -78,6 +78,10 @@ evaluation setting so that interactive-world results remain distinct from robot 
 
 ## Papers
 
+**2026-10-29 update:** Added Rollback (RSI) and Real2Gym (Code World Model) after
+manual review. See the [source record](SOURCES.md#accepted-additions-2026-10-29)
+for first-submission dates, evidence, and release scope.
+
 **2026-10-20 update:** Added five papers per direction (20 new entries), prioritizing
 recent work relevant to embodied learning and executable worlds. Titles, first-submission
 dates, and mechanisms were checked against the original papers. See the
@@ -114,6 +118,7 @@ libraries, autonomous feedback, and improvements to the learning loop itself.
 
 | Date | Paper | Title | Links | Improvement Mechanism |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10 | **Rollback** | Rollback: Experience Backtracking in World Models for Policy Improvement | [Paper](https://arxiv.org/abs/2610.36068) · [Project](https://rollback-wm.github.io/) | Trains the policy on counterfactual branches from past decision points while real-robot trajectories continually adapt the video world model through LoRA; evaluated on real block extraction, ball tossing, and tabletop curling. |
 | 2026-10 | **AdaRSI** | AdaRSI: On-Demand Recursive Self-Improvement for Embodied Agents | [Paper](https://arxiv.org/abs/2610.20474) | Revises skills and harnesses first, then diagnoses persistent sub-step failures and selectively fine-tunes the VLA using self-collected demonstrations; evaluated in RoboCasa365 simulation. |
 | 2026-10 | **COAP** | Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement | [Paper](https://arxiv.org/abs/2610.12369) | Uses coding agents to iteratively extend a shared state-tracking and control library, enabling reuse across tasks with no VLM or VLA in the runtime loop; evaluated on 42 simulated RoboDojo tasks. |
 | 2026-10 | **RoboRSI** | RoboRSI: Stable, efficient, and reusable robot self-evolution in complex real-world environments. | [Paper](https://arxiv.org/abs/2610.12424) · [Project](https://lab.noematrix.ai/blog/2-roborsi/) · [Code](https://github.com/nssmd/RoboRSI) | Uses execution feedback to diagnose and locally revise a hierarchical skill tree, validate updates, and consolidate stable skill sequences for reuse. |
@@ -159,6 +164,7 @@ and using executable models for planning or visual simulation.
 | :--- | :--- | :--- | :--- | :--- |
 | 2026-10 | **AgentGarten** | AgentGarten: Code Worlds for Evolving Agents | [Paper](https://arxiv.org/abs/2610.12374) · [Project](https://mirros-lab.github.io/agent-garten) | Combines program-defined simulation state and interaction rules with a shared neural renderer, enabling agents to practice in interactive code worlds and refine inherited playbooks. |
 | 2026-10 | **Memento 3** | Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks | [Paper](https://arxiv.org/abs/2610.11794) | Compiles revisable rulebooks into executable world models and accepts updates after fidelity checks and transition replay; evaluated on ARC-AGI-3 and Atari Pong with a frozen LLM. |
+| 2026-09 | **Real2Gym** | Real2Gym: Building Gyms from Videos, Bringing Skills to Robots | [Paper](https://arxiv.org/abs/2609.37089) · [Project](https://real2gym.github.io/) · [Real2Sim code](https://github.com/real2gym/Real2Gym) · [Agent code](https://github.com/real2gym/R2G_Agent) | Builds editable Blender/MuJoCo worlds from demonstration videos, verifies interactions with native physics, and uses feasible scene variants for skill development; evaluated on DROID/EgoDex reconstructions and four real Franka tasks. |
 | 2026-09 | **EMPIRIC** | EMPIRIC: Experiment-Driven Learning of Residual World Models for Robot Planning | [Paper](https://arxiv.org/abs/2609.35047) · [Project](https://yichao-liang.github.io/empiric) | Extends a physics engine with synthesized programs for missing mechanisms, estimating parameters through Bayesian inference and revising models through experiments; evaluated in five simulated domains and real-robot manipulation. |
 | 2026-09 | **CoDeR** | Code Plans, Diffusion Renders: Open-Ended Generative World Modeling | [Paper](https://arxiv.org/abs/2609.26458) · [Project](https://becauseimbatman0.github.io/CoDeR) | Coordinates agent roles to construct executable world rules and dynamics, with video models rendering persistent state; studied in interactive visual worlds with autonomous evolution and multiple entities. |
 | 2026-09 | **PWM** | Programmable World Model | [Paper](https://arxiv.org/abs/2609.10540) · [Project](https://alaya-lab.github.io/pwm) · [Code](https://github.com/AlayaLab/pwm) | Executes programs over persistent entity states and transition rules, compiling state-augmented 3D boxes into video-model controls; evaluated on programmable game worlds and CombatStateBench. |

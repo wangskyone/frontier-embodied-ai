@@ -1,5 +1,36 @@
 # Paper selection and sources
 
+## Accepted additions: 2026-10-29
+
+Two papers from the 2026-10-29 review batch were explicitly accepted by the maintainer:
+RSI-1 (Rollback) and CWM-1 (Real2Gym). Dates and descriptions were checked against
+the original arXiv abstracts and full papers; official project and code links were
+checked on 2026-10-29. Existing entries are retained.
+
+| Direction | First submission | Latest version reviewed | Paper | Primary evidence and official resources |
+| :--- | :--- | :--- | :--- | :--- |
+| RSI | 2026-10-26 | v1, 2026-10-26 | [Rollback: Experience Backtracking in World Models for Policy Improvement](https://arxiv.org/abs/2610.36068) | [Method and experiments](https://arxiv.org/html/2610.36068v1) · [Project](https://rollback-wm.github.io/) |
+| Code World Model | 2026-09-29 | v1, 2026-09-29 | [Real2Gym: Building Gyms from Videos, Bringing Skills to Robots](https://arxiv.org/abs/2609.37089) | [Method and experiments](https://arxiv.org/html/2609.37089v1) · [Project](https://real2gym.github.io/) · [Real2Sim code](https://github.com/real2gym/Real2Gym) · [Agent code](https://github.com/real2gym/R2G_Agent) |
+
+- **Rollback:** Counterfactual world-model rollouts provide action-level supervision
+  for policy improvement; real trajectories update the video world model through
+  LoRA fine-tuning and distribution matching distillation. The paper evaluates block
+  extraction, ball tossing, and tabletop curling on real robots. Its RSI relevance is
+  continual policy/world-model co-improvement; it does not demonstrate recursive
+  modification of the improvement algorithm. The reported improvement setup uses
+  48 H200 GPUs. No official code link was found on the project page at review time.
+- **Real2Gym:** Video-derived Blender/MuJoCo worlds support executable physical
+  interactions and action-feasibility checks, beyond static scene reconstruction.
+  Evidence includes DROID/EgoDex reconstruction, simulated manipulation, and four
+  tasks on a real Franka robot. The agent's underlying model weights remain frozen.
+  The released R2G_Agent covers the C0 continuous stage-code execution path; its
+  README states that it neither loads prior-task procedures nor builds a persistent
+  experience library. The broader experience accumulation described in the paper
+  should therefore be distinguished from the released implementation. Real2Gym was
+  a 30-day-window supplement in this batch, not a newly submitted October paper.
+
+## Initial selection: 2026-10-20
+
 Reviewed on **2026-10-20** (Asia/Shanghai).
 
 This update adds **20 distinct papers: five each for ICL, RSI, TTT, and Code World Model**.
