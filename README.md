@@ -3,14 +3,14 @@
 <h1 align="center">Frontier Embodied AI</h1>
 
 <p align="center">
-  <strong>In-Context Learning · Recursive Self-Improvement · Test-Time Training · Code World Model</strong><br>
+  <strong>ICL &amp; Embodied Agentic RL · Recursive Self-Improvement · Test-Time Training · Code World Model</strong><br>
   A curated collection of papers, code, and perspectives on embodied agents that learn from context,
-  improve through experience, adapt at test time, and reason with executable world models.
+  train through agentic interaction, improve through experience, adapt at test time, and reason with executable world models.
 </p>
 
 <p align="center">
   <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-  <a href="#icl"><img src="https://img.shields.io/badge/Explore-ICL-527AA3?style=flat-square&amp;labelColor=253449" alt="In-Context Learning"></a>
+  <a href="#icl"><img src="https://img.shields.io/badge/Explore-ICL%20%26%20Agentic%20RL-527AA3?style=flat-square&amp;labelColor=253449" alt="ICL and Embodied Agentic RL"></a>
   <a href="#rsi"><img src="https://img.shields.io/badge/Explore-RSI-7D5CC6?style=flat-square&amp;labelColor=253449" alt="Recursive Self-Improvement"></a>
   <a href="#ttt"><img src="https://img.shields.io/badge/Explore-TTT-A98032?style=flat-square&amp;labelColor=253449" alt="Test-Time Training"></a>
   <a href="#code-world-model"><img src="https://img.shields.io/badge/Explore-Code%20World%20Model-1FA7A3?style=flat-square&amp;labelColor=253449" alt="Code World Model"></a>
@@ -30,9 +30,9 @@
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>01 · In-Context Learning</h3>
-      <p>Acquire new behaviors from demonstrations and interaction histories supplied as context.</p>
-      <p><a href="#icl"><strong>Explore ICL →</strong></a></p>
+      <h3>01 · ICL &amp; Embodied Agentic RL</h3>
+      <p>Learn behaviors from contextual demonstrations or train embodied planners and code policies through interaction.</p>
+      <p><a href="#icl"><strong>Explore ICL &amp; Agentic RL →</strong></a></p>
     </td>
     <td width="50%" valign="top">
       <h3>02 · Recursive Self-Improvement</h3>
@@ -62,7 +62,7 @@ methods are included when they directly inform these mechanisms.
 
 | Direction | Central question | What changes? | Typical evidence |
 | :--- | :--- | :--- | :--- |
-| **ICL — In-Context Learning** | Can an agent learn a new behavior from examples in its context? | Demonstrations, retrieved experience, or interaction history; policy parameters remain fixed during adaptation. | Generalization to new tasks from a small number of contextual demonstrations. |
+| **ICL & Embodied Agentic RL** | How do embodied agents acquire behavior from context or learn to plan and use tools through interaction? | ICL changes context with fixed policy weights; agentic RL updates planner or code-policy weights. Related harness evolution and distillation are labeled explicitly. | Contextual generalization, multi-turn policy improvement, and transfer from simulation to robot hardware. |
 | **RSI — Recursive Self-Improvement** | Can an agent use its own outcomes to improve capabilities it will reuse? | Skills, policies, data collection, evaluators, or the improvement process across iterations. | Repeated feedback–revision–validation cycles and reuse of acquired capabilities. |
 | **TTT — Test-Time Training** | Can an agent learn from the environment it encounters at deployment? | Selected parameters, adapters, or fast-weight memory through a training objective. | Adaptation to new tasks, observations, terrain, or dynamics at test time. |
 | **Code World Model** | Can an agent build and execute a model of how its world evolves? | Programs representing state, transitions, rules, or rewards. | Executable predictions, consistency with observations, and downstream planning or simulation. |
@@ -78,6 +78,9 @@ evaluation setting so that interactive-world results remain distinct from robot 
 
 ## Papers
 
+**2026-11-03 update:** Expanded ICL to include Embodied Agentic RL and added four
+user-selected papers: TinyAstral, CaPtain, ZAP, and AgenticRoboRL.
+
 **2026-10-29 update:** Added Rollback (RSI) and Real2Gym (Code World Model) after
 manual review. See the [source record](SOURCES.md#accepted-additions-2026-10-29)
 for first-submission dates, evidence, and release scope.
@@ -89,14 +92,21 @@ dates, and mechanisms were checked against the original papers. See the
 
 <a id="icl"></a>
 
-### ICL · In-Context Learning
+### ICL & Embodied Agentic RL
 
-Learning new embodied behaviors from demonstrations, trajectories, and interaction
-histories presented at inference time. Priorities include demonstration selection,
-sensorimotor context, and generalization to new tasks and scenes.
+This section covers two complementary routes: **ICL**, which conditions a fixed policy
+on demonstrations and interaction histories, and **Embodied Agentic RL**, which trains
+robot planners and code policies through multi-turn interaction, including SFT + RL
+and simulation-to-real transfer. Directly related harness evolution and agent distillation
+are included as supporting methods. Each entry identifies what is trained or adapted;
+harness evolution and distillation alone are not labeled as RL.
 
 | Date | Paper | Title | Links | Learning Mechanism |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-10 | **TinyAstral** | TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents | [Paper](https://arxiv.org/abs/2610.41216) · [Project](https://garfield-kh.github.io/TinyAstral/) · [Code](https://github.com/Garfield-kh/TinyAstral) | **Harness evolution + distillation:** evolves tools, feedback, memory, and recovery around a frozen teacher, then trains compact students on teacher traces in the fixed harness; evaluated in simulation, with offline real-robot data as auxiliary supervision. |
+| 2026-10 | **CaPtain** | CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents | [Paper](https://arxiv.org/abs/2610.40799) · [Project](https://waltstephen.github.io/captain/) · [Code](https://github.com/waltstephen/CaPtain) | **Agentic RL:** SFT followed by multi-turn RL trains a code-writing VLM inside a robot harness; a privileged physical critic assigns request-level credit during training. Evaluated on manipulation benchmarks and physical hardware after simulation-only adaptation. |
+| 2026-10 | **ZAP** | Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent | [Paper](https://arxiv.org/abs/2610.35817) · [Project](https://zero-real.github.io/) | **Agentic RL:** trains a tool-using VLM with SFT on its own successful simulated traces and GRPO, then deploys fixed weights on real bimanual robots and an unseen Franka embodiment; uses no real-robot demonstrations during training. |
+| 2026-10 | **AgenticRoboRL** | AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics | [Paper](https://arxiv.org/abs/2610.28589) · [Project](https://l-codingspace.github.io/AgenticRoboRL/) · [Code](https://github.com/L-CodingSpace/AgenticRoboRL) | **Agentic RL:** SFT and multi-turn RL update the robot planner while harness execution components remain fixed; adapters support VLA skill calls and control-code generation, evaluated on LIBERO-PRO/Plus and across RPent/CaP-X harnesses in simulation. |
 | 2026-10 | **Astra Visuo-Tactile** | GPT-6 Astra Is a Native Visuo-Tactile Policy for Contact-Rich Manipulation | [Paper](https://arxiv.org/abs/2610.26846) | Uses few-shot context and visual/tactile RGB observations for closed-loop contact-rich control; evaluated on simulated UniVTAC and OpenViTac tasks, with physical-robot validation left for future work. |
 | 2026-08 | **Zeva** | Zeva: In-Context Causal Learning for Generalizable Embodied Manipulation | [Paper](https://arxiv.org/abs/2608.30880) | Encodes executed actions and resulting state changes into causal memory, retrieving relevant interactions as context for a frozen policy; evaluated in simulation and real-world manipulation. |
 | 2026-08 | **Zero-WAM** | Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization | [Paper](https://arxiv.org/abs/2608.26103) · [Project](https://robbyant-research.github.io/Zero-WAM/) | Conditions a causal video-action model on human demonstration videos, using an in-context future-prediction training objective to support unseen-task execution without parameter updates; evaluated in simulation and real robots. |
@@ -228,7 +238,7 @@ and execution efficiency.
 
 Suggestions and pull requests are welcome.
 
-- Choose **ICL**, **RSI**, **TTT**, **Code World Model**, or **Blogs**. For work spanning directions, place it under the main contribution and describe the connection.
+- Choose **ICL & Embodied Agentic RL**, **RSI**, **TTT**, **Code World Model**, or **Blogs**. For work spanning directions, place it under the main contribution and describe the connection.
 - Include the full title, first public publication date, and original paper or blog link. Add official project and code links when available.
 - Explain the mechanism in one sentence: what the agent learns or updates, what feedback it uses, and where it is evaluated.
 - Distinguish real-robot experiments, simulation, and other interactive environments. Describe demonstrated capabilities precisely.

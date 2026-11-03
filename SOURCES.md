@@ -1,5 +1,35 @@
 # Paper selection and sources
 
+## Expanded scope and accepted additions: 2026-11-03
+
+The maintainer expanded the ICL section to **ICL & Embodied Agentic RL** and explicitly
+requested these four papers. This includes multi-turn reinforcement learning for robot
+planners and code policies, SFT + RL post-training, and closely related harness/distillation
+methods. ICL still means contextual adaptation with fixed policy weights; training-time
+RL is distinct from deployment-time TTT. Existing entries are retained.
+
+| First submission | Latest version reviewed | Paper | Primary evidence and official resources |
+| :--- | :--- | :--- | :--- |
+| 2026-10-30 | v1, 2026-10-30 | [TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents](https://arxiv.org/abs/2610.41216) | [Method and experiments](https://arxiv.org/html/2610.41216v1) · [Project](https://garfield-kh.github.io/TinyAstral/) · [Code](https://github.com/Garfield-kh/TinyAstral) |
+| 2026-10-29 | v1, 2026-10-29 | [CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents](https://arxiv.org/abs/2610.40799) | [Method and experiments](https://arxiv.org/html/2610.40799v1) · [Project](https://waltstephen.github.io/captain/) · [Code](https://github.com/waltstephen/CaPtain) |
+| 2026-10-26 | v2, 2026-10-27 | [Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent](https://arxiv.org/abs/2610.35817) | [Method and experiments](https://arxiv.org/html/2610.35817v2) · [Project](https://zero-real.github.io/) |
+| 2026-10-20 | v2, 2026-10-21 | [AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics](https://arxiv.org/abs/2610.28589) | [Method and experiments](https://arxiv.org/html/2610.28589v2) · [Project](https://l-codingspace.github.io/AgenticRoboRL/) · [Code](https://github.com/L-CodingSpace/AgenticRoboRL) |
+
+- **TinyAstral** is included as a supporting harness-evolution and distillation method,
+  with an RSI cross-tag. Only the harness changes during evolution; student weights
+  change during subsequent distillation. Its main closed-loop evaluations are simulated;
+  auxiliary real-robot training data does not establish hardware deployment performance.
+- **CaPtain** trains a code-writing VLM with SFT and multi-turn RL. The physical critic
+  reads privileged simulator state only during training. Hardware transfer follows
+  simulation-only adaptation; it is not presented as test-time parameter learning.
+- **ZAP** trains a 27B VLM using self-mined successful simulation traces and GRPO.
+  Evaluation includes real bimanual manipulation and transfer to a single-arm Franka.
+  The no-real-robot-data claim applies to robot training data, not general VLM pretraining.
+  The project links a paper repository; no policy-training code release is asserted here.
+- **AgenticRoboRL** updates planner weights with SFT and multi-turn RL while retaining
+  fixed execution components. Evidence is from simulation, including LIBERO-PRO/Plus
+  and RPent/CaP-X; no physical-robot validation is claimed.
+
 ## Accepted additions: 2026-10-29
 
 Two papers from the 2026-10-29 review batch were explicitly accepted by the maintainer:
