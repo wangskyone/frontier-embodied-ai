@@ -1,5 +1,19 @@
 # Paper selection and sources
 
+## Accepted additions: 2026-11-06
+
+The maintainer accepted ICL-1, RSI-1, and CWM-1 from the November 5 review batch.
+
+| Direction | First submission | Latest version reviewed | Paper | Primary evidence and official resources |
+| :--- | :--- | :--- | :--- | :--- |
+| ICL | 2026-10-20 | v2, 2026-11-03 | [D-Skill: Distilling Teacher Knowledge through Agent Skills](https://arxiv.org/abs/2610.28914) | [Method and experiments](https://arxiv.org/html/2610.28914v2) · [Code](https://github.com/shuo-yuan/D-Skill) |
+| RSI | 2026-11-02 | v1, 2026-11-02 | [Physical Experience Builds Continual Spatial World Models](https://arxiv.org/abs/2611.04016) | [Method and experiments](https://arxiv.org/html/2611.04016v1) |
+| CWM | 2026-11-03 | v1, 2026-11-03 | [PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data](https://arxiv.org/abs/2611.05320) | [Method and experiments](https://arxiv.org/html/2611.05320v1) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm) |
+
+- **D-Skill** constructs textual skills offline from paired traces and deploys them as context with fixed model weights. ALFWorld evaluation uses 134 text-environment test games. Its October 20 first submission makes it a supplemental candidate, with the November 3 revision reviewed.
+- **Spatial Change Memory** updates reusable spatial relations and parameters within a known dynamics family. Evidence comes from physics-grounded simulation, with hardware maze validation proposed as future work.
+- **PyRUA-DataFarm** separates executable simulation dynamics from video appearance generation. Policies trained on generated data are evaluated on one dual-arm platform across five tasks. Unobserved physical parameters are assumed and randomized.
+
 ## Expanded scope and accepted additions: 2026-11-03
 
 The maintainer expanded the ICL section to **ICL & Embodied Agentic RL** and explicitly
